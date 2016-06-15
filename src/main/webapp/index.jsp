@@ -9,8 +9,11 @@
         <c:import url="global-elements/include-media.jsp"/>
     </head>
     <body>
-        <c:import url="global-elements/body/body-header.jsp"/>
-        <c:import url="global-elements/body/body.jsp"/>
+        <div id="wrap">
+            <c:import url="global-elements/body/body-header.jsp"/>
+            <c:import url="global-elements/body/body.jsp"/>
+        </div>
         <c:import url="global-elements/body/body-footer.jsp"/>
     </body>
 </html>
+
