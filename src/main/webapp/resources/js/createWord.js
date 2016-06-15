@@ -22,7 +22,16 @@
                     dataType:"json",
                     contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
                     success: function(response){
-                        console.log("Done" , response)
+                        BootstrapDialog.show({
+                            title: 'Success',
+                            message: 'Successfully Entered New Word'
+                        });
+                    },
+                    error: function(response){
+                        BootstrapDialog.show({
+                            title: 'Error',
+                            message: response.responseJSON.error + ' Please try again.'
+                        });
                     }
                 });
             }
