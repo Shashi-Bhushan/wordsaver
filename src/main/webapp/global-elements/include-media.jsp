@@ -7,3 +7,4 @@
 <%-- JS Resources --%>
 <script src="./resources/jquery-1.12.2/jquery.min.js"></script>
 <script src="./resources/bootstrap-3.3.6-dist/js/bootstrap.min.js"></script>
+<script src="./resources/js/createWord.js"></script>

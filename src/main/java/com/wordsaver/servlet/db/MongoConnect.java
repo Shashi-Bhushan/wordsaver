@@ -1,10 +1,13 @@
 package com.wordsaver.servlet.db;
 
 import com.mongodb.DB;
+import com.mongodb.Mongo;
 import com.mongodb.MongoClient;
 import com.wordsaver.servlet.db.constants.DBConstants;
 import org.json.JSONArray;
 import org.json.JSONObject;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -21,6 +24,8 @@ import java.util.List;
  */
 @WebServlet("/mongo")
 public class MongoConnect extends HttpServlet {
+    private static Logger LOG = LoggerFactory.getLogger(MongoConnect.class);
+
     @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response)
             throws IOException {
