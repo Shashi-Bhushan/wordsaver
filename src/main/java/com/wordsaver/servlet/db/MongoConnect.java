@@ -2,6 +2,9 @@ package com.wordsaver.servlet.db;
 
 import com.mongodb.DB;
 import com.mongodb.MongoClient;
+import com.wordsaver.servlet.db.constants.DBConstants;
+import org.json.JSONArray;
+import org.json.JSONObject;
 
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -21,6 +24,9 @@ public class MongoConnect extends HttpServlet {
     @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response)
             throws IOException {
+        response.setContentType("application/json");
+
+        JSONObject responseObject = new JSONObject();
         PrintWriter writer = response.getWriter();
 
         try{
@@ -29,21 +35,27 @@ public class MongoConnect extends HttpServlet {
             MongoClient mongoClient = new MongoClient( "localhost" , 27017 );
 
             // Now connect to your databases
-            DB db = mongoClient.getDB( "test" );
-            writer.println("Connect to database successfully");
-            boolean auth = db.authenticate("tomcat", new char[]{'t','o','m','c','a', 't'});
-            writer.println("Authentication: " + auth);
+            DB db = mongoClient.getDB("test");
+            responseObject.put(DBConstants.CONNECTION, DBConstants.CONNECTION_RESPONSE.SUCCESSFUL);
+
+            boolean auth = db.authenticate("tomcat", new char[]{'t', 'o', 'm', 'c', 'a', 't'});
+            responseObject.put("Authentication " , String.valueOf(auth));
 
             List<String> dbs = mongoClient.getDatabaseNames();
+            JSONArray dbArray = new JSONArray();
             for(String database : dbs)
             {
-                writer.println(database);
+                dbArray.put(database);
             }
+
+            responseObject.put("database", dbArray);
 
             mongoClient.close();
 
         }catch(Exception e){
-            writer.println( e.getClass().getName() + ": " + e.getMessage() );
+            responseObject.put("error", e.getClass().getName() + ": " + e.getMessage() );
         }
+
+        writer.print(responseObject.toString());
     }
 }
