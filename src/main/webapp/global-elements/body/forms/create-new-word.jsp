@@ -1,7 +1,11 @@
+<%@ page import="com.wordsaver.util.UUIDGenerator" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
+<c:set var="uuid" value="<%=UUIDGenerator.generateUUID()%>"/>
 
 <!-- Modal -->
-<div class="modal fade" id="myModal" role="dialog">
+<div class="modal fade" id="createWord" role="dialog">
     <div class="modal-dialog">
 
         <!-- Modal content-->
@@ -12,9 +16,9 @@
             </div>
             <div class="modal-body">
                 <%-- Form to Enter Word--%>
-                <form role="form">
+                <form role="form" id="${uuid}">
                     <div class="form-group">
-                        <label for="word">Word</label>
+                        <label for="word">Word ${uuid}</label>
                         <input type="text" class="form-control" id="word">
                     </div>
                     <div class="form-group">
@@ -26,10 +30,16 @@
                         <input type="text" class="form-control" id="example">
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-primary" data-dismiss="modal">Create</button>
+                        <button type="button" class="submit btn btn-primary" data-dismiss="modal">Create</button>
                     </div>
                 </form>
             </div>
         </div>
     </div>
 </div>
+
+<script>
+    $(document).ready(function(){
+
+    });
+</script>
