@@ -3,6 +3,7 @@ package com.wordsaver.servlet.db;
 import com.mongodb.DB;
 import com.mongodb.Mongo;
 import com.mongodb.MongoClient;
+import com.mongodb.util.JSON;
 import com.wordsaver.servlet.db.constants.DBConstants;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -22,17 +23,11 @@ import java.util.List;
  *         Created on 14/6/16.
  *         For Project : WordSaver
  */
-@WebServlet("/mongo")
-public class MongoConnect extends HttpServlet {
+public class MongoConnect {
     private static Logger LOG = LoggerFactory.getLogger(MongoConnect.class);
 
-    @Override
-    public void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws IOException {
-        response.setContentType("application/json");
-
+    public static JSONObject getDBJson() {
         JSONObject responseObject = new JSONObject();
-        PrintWriter writer = response.getWriter();
 
         try{
 
@@ -61,6 +56,6 @@ public class MongoConnect extends HttpServlet {
             responseObject.put("error", e.getClass().getName() + ": " + e.getMessage() );
         }
 
-        writer.print(responseObject.toString());
+        return responseObject;
     }
 }

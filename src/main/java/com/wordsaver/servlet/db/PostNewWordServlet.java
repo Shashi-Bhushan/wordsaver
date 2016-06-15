@@ -24,7 +24,8 @@ public class PostNewWordServlet extends HttpServlet {
     @Override
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("application/json");
-        JSONObject responseObject = new JSONObject();
+        JSONObject responseObject = new JSONObject(MongoConnect.getDBJson());
+
 
         String word = request.getParameter("word");
         String meaning = request.getParameter("meaning");
@@ -47,7 +48,7 @@ public class PostNewWordServlet extends HttpServlet {
             responseObject.put("responseMeaning" , meaning);
             responseObject.put("responseExample" , example);
 
-            response.getWriter().write(responseObject.toString());
+            response.getWriter().write(MongoConnect.getDBJson().toString());
         }
     }
 }
