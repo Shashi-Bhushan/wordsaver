@@ -6,7 +6,7 @@
         <title>Word Saver</title>
         <meta charset="utf-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1"/>
-        <c:import url="global-elements/include-media.jsp"/>
+        <%@include file="global-elements/include-media.jsp"%>
     </head>
     <body>
         <div id="wrap">

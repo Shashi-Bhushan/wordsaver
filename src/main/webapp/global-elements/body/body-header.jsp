@@ -19,7 +19,7 @@
         <ul class="nav navbar-nav navbar-right">
             <li>
                 <!-- Trigger the modal with a button -->
-                <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button>
+                <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">Create</button>
             </li>
         </ul>
         <!-- the collapsing menu -->

@@ -1,5 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%-- These are included in index.jsp via c:include so, path will resolve there not here--%>
+
 <%-- CSS Resources --%>
 <link rel="stylesheet" href="./resources/bootstrap-3.3.6-dist/css/bootstrap.min.css">
 <link rel="stylesheet" href="./resources/css/custom.css">
