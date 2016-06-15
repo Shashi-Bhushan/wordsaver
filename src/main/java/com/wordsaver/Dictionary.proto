@@ -3,6 +3,7 @@ package java;
 option java_package="com.wordsaver.generated";
 option java_outer_classname="DictionaryProto";
 
+// when Configuring the Output Directoyr for Compilation, choose src/main as output directory
 message Word {
     required string word = 1;
     required string meaning = 2;
