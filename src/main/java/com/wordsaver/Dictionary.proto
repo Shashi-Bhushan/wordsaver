@@ -1,0 +1,17 @@
+package java;
+
+option java_package="com.wordsaver.generated";
+option java_outer_classname="DictionaryProto";
+
+message Word {
+    required string word = 1;
+    required string meaning = 2;
+    optional string example = 3;
+    optional bool knowTheWord = 4;
+    required string dateWhenAdded = 5;
+}
+
+// One Dictionary can have multiple Words
+message Dictionary {
+    repeated Word word = 1;
+}
